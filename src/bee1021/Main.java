@@ -1,16 +1,18 @@
 package bee1021;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String valor = sc.nextLine();
+        Locale.setDefault(Locale.US);
 
-        double valorTotal = Double.parseDouble(valor.replace(",", "."));
+        double valor = sc.nextDouble();
 
-        double resto = valorTotal;
+
+        double resto = valor;
 
         int notas100 = (int) resto / 100;
         resto %= 100;
@@ -37,7 +39,7 @@ public class Main {
         resto %= 10;
         int moedas05 = (int) (resto / 5);
         resto %= 5;
-        int moedas01 = (int)(resto / 1);
+        int moedas01 = (int) resto;
 
         System.out.println("NOTAS:\n" +
                             notas100 + " nota(s) de R$ 100.00\n"+
@@ -52,7 +54,7 @@ public class Main {
                             moedas25 + " moeda(s) de R$ 0.25\n" +
                             moedas10 + " moeda(s) de R$ 0.10\n" +
                             moedas05 + " moeda(s) de R$ 0.05\n" +
-                            moedas01 + " moeda(s) de R$ 0.01\n");
+                            moedas01 + " moeda(s) de R$ 0.01");
         sc.close();
 
     }
